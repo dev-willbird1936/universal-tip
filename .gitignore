@@ -1,0 +1,13 @@
+node_modules/
+.env
+.env.*
+!.env.example
+extension/dist/
+data/
+output/
+__pycache__/
+*.pyc
+.pi/
+.playwright-mcp/
+.planning/
+INTENTION.md

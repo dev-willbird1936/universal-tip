@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Universal Tip",
+  "version": "0.1.0",
+  "minimum_chrome_version": "120",
+  "description": "Find creator-published support information with evidence, on demand.",
+  "icons": { "16": "icons/icon-16.png", "32": "icons/icon-32.png", "48": "icons/icon-48.png", "128": "icons/icon-128.png" },
+  "permissions": ["storage", "contextMenus", "tabs", "scripting"],
+  "host_permissions": ["http://127.0.0.1:4318/*", "https://syndication.twitter.com/*"],
+  "optional_host_permissions": ["https://*/*", "http://*/*"],
+  "background": { "service_worker": "dist/background.js" },
+  "action": { "default_title": "Universal Tip", "default_popup": "popup.html", "default_icon": { "16": "icons/icon-16.png", "32": "icons/icon-32.png" } },
+  "content_scripts": [{
+    "matches": ["https://github.com/*", "https://gist.github.com/*", "https://stackoverflow.com/*", "https://www.reddit.com/*", "https://old.reddit.com/*", "https://x.com/*", "https://twitter.com/*", "https://www.facebook.com/*", "https://m.facebook.com/*", "https://www.youtube.com/*", "https://m.youtube.com/*"],
+    "js": ["dist/content.js"], "run_at": "document_idle"
+  }]
+}
